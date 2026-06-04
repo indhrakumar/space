@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore the Space</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Kalam:wght@300;400;700&family=Lugrasimo&display=swap");
+      body {
+        font-family: "Cinzel";
+      }
+      #stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 2s infinite alternate;
+      }
+
+      @keyframes twinkle {
+        from {
+          opacity: 0.2;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-black">
+    <div id="stars"></div>
+    <section id="hero" class="min-h-screen flex items-center">
+      <div class="w-full flex flex-col p-10">
+        <h2
+          style="
+            text-shadow:
+              0 0 30px,
+              0 0 90px;
+          "
+          class="text-4xl md:text-6xl mb-16 font-bold text-cyan-300 text-center">
+          EXPLORE THE COSMOS
+        </h2>
+        <h2
+          class="animate-pulse text-2xl md:text-4xl mb-4 font-bold text-cyan-300 text-center">
+          Discover planets, stars and galaxies
+        </h2>
+        <p
+          class="animate-pulse text-lg md:text-xl max-w-4xl mx-auto italic mb-16 font-bold text-cyan-300 text-center">
+          Journey through planets, galaxies and the mysteries of the universe
+        </p>
+        <button
+          class="mx-auto animate-pulse hover:animate-none w-fit text-lg md:text-xl bg-cyan-400 px-6 py-3 text-black font-semibold rounded-2xl shadow-[0_0_10px_cyan] hover:scale-110 hover:shadow-[0_0_30px_cyan,0_0_10px_black] transition duration-300">
+          Begin Mission
+        </button>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
