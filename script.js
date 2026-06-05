@@ -54,9 +54,30 @@ function createShootingStar() {
 function startShootingStars() {
   createShootingStar();
 
-  const nextTime = Math.random() * 5000 + 3000;
+  const nextTime = Math.random() * 5000 + 1000;
 
   setTimeout(startShootingStars, nextTime);
 }
 
 startShootingStars();
+// instersection observer
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("hide");
+        entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show");
+        entry.target.classList.add("hide");
+      }
+    });
+  },
+  {
+    threshold: 0.25,
+  },
+);
+
+document.querySelectorAll(".planet").forEach((planet) => {
+  observer.observe(planet);
+});
