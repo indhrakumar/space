@@ -16,7 +16,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: -2;
         overflow: hidden;
       }
 
@@ -35,10 +35,58 @@
           opacity: 1;
         }
       }
+      .shooting-star {
+        position: fixed;
+        width: 180px;
+        height: 2px;
+
+        /* Tail always behind */
+        background: linear-gradient(
+          to left,
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 0)
+        );
+
+        border-radius: 999px;
+        pointer-events: none;
+        z-index: -1;
+
+        filter: drop-shadow(0 0 8px white);
+
+        transform: rotate(var(--angle));
+
+        animation: shoot 2s linear forwards;
+      }
+
+      @keyframes shoot {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          transform: translate(var(--dx), var(--dy)) rotate(var(--angle));
+
+          opacity: 0;
+        }
+      }
+      .planet {
+        background-color: rgba(0, 0, 0, 0.219);
+        backdrop-filter: blur(2px);
+        z-index: 999;
+        flex-direction: column;
+      }
+
+      .planet .btndiv {
+        margin-top: auto;
+      }
+      .planet-content p {
+        text-align: center;
+      }
     </style>
   </head>
   <body class="bg-black">
     <div id="stars"></div>
+    <div id="shootingstars"></div>
     <section id="hero" class="min-h-screen flex items-center">
       <div class="w-full flex flex-col p-10">
         <h2
@@ -62,6 +110,219 @@
           class="mx-auto animate-pulse hover:animate-none w-fit text-lg md:text-xl bg-cyan-400 px-6 py-3 text-black font-semibold rounded-2xl shadow-[0_0_10px_cyan] hover:scale-110 hover:shadow-[0_0_30px_cyan,0_0_10px_black] transition duration-300">
           Begin Mission
         </button>
+      </div>
+    </section>
+    <section id="solar-system" class="min-h-screen">
+      <div class="h-full flex flex-col items-center">
+        <h2 class="text-cyan-300 font-semibold text-5xl mb-10">
+          Our Solar System
+        </h2>
+        <div
+          id="planets"
+          class="planets p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            id="mercury"
+            class="planet flex flex-col gap-2 border border-gray-700 rounded-3xl p-5 relative">
+            <div class="overflow-hidden w-full h-[400px]">
+              <img
+                src="img/mercury1.png"
+                alt="Earth-Image"
+                class="w-full h-full object-contain" />
+            </div>
+            <div class="planet-content w-full px-2 py-4">
+              <h2
+                class="text-center text-4xl tracking-wider font-bold text-white">
+                Mercury
+              </h2>
+              <p class="text-gray-500 text-lg font-semibold">
+                The Closest planet to the Sun
+              </p>
+            </div>
+            <div class="w-full flex p-3 btndiv">
+              <button
+                class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
+                View More
+              </button>
+            </div>
+          </div>
+          <div
+            id="venus"
+            class="planet flex flex-col gap-2 border border-gray-700 rounded-3xl p-5 relative">
+            <div class="overflow-hidden w-full h-[400px]">
+              <img
+                src="img/venus.png"
+                alt="Earth-Image"
+                class="w-full h-full object-contain" />
+            </div>
+            <div class="planet-content w-full px-2 py-4">
+              <h2
+                class="text-center text-4xl font-bold tracking-wider text-white">
+                Venus
+              </h2>
+
+              <p class="text-gray-500 text-lg font-semibold">
+                The hottest planet in our Solar System.
+              </p>
+            </div>
+            <div class="w-full flex p-3 btndiv">
+              <button
+                class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
+                View More
+              </button>
+            </div>
+          </div>
+          <div
+            id="earth"
+            class="planet flex flex-col gap-2 border border-gray-700 rounded-3xl p-5 relative">
+            <div class="overflow-hidden w-full h-[400px]">
+              <img
+                src="img/Earth.png"
+                alt="Earth-Image"
+                class="w-full h-full object-contain" />
+            </div>
+            <div class="planet-content w-full px-2 py-4">
+              <h2
+                class="text-center text-4xl font-bold tracking-wider text-white">
+                Earth
+              </h2>
+
+              <p class="text-gray-500 text-lg font-semibold">
+                The only known planet with life.
+              </p>
+            </div>
+            <div class="w-full flex p-3 btndiv">
+              <button
+                class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
+                View More
+              </button>
+            </div>
+          </div>
+          <div
+            id="mars"
+            class="planet flex flex-col gap-2 border border-gray-700 rounded-3xl p-5 relative">
+            <div class="overflow-hidden w-full h-[400px]">
+              <img
+                src="img/mars.png"
+                alt="Earth-Image"
+                class="w-full h-full object-contain" />
+            </div>
+            <div class="planet-content w-full px-2 py-4">
+              <h2
+                class="text-center text-4xl font-bold tracking-wider text-white">
+                Mars
+              </h2>
+              <p class="text-gray-500 text-lg font-semibold">
+                The famous Red Planet
+              </p>
+            </div>
+            <div class="w-full flex p-3 btndiv">
+              <button
+                class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
+                View More
+              </button>
+            </div>
+          </div>
+          <div
+            id="jupiter"
+            class="planet flex flex-col gap-2 border border-gray-700 rounded-3xl p-5 relative">
+            <div class="overflow-hidden w-full h-[400px]">
+              <img
+                src="img/jupiter.png"
+                alt="Earth-Image"
+                class="w-full h-full object-contain" />
+            </div>
+            <div class="planet-content w-full px-2 py-4">
+              <h2
+                class="text-center text-4xl font-bold tracking-wider text-white">
+                Jupiter
+              </h2>
+              <p class="text-gray-500 text-lg font-semibold">
+                The largest planet in our Solar System.
+              </p>
+            </div>
+            <div class="w-full flex p-3 btndiv">
+              <button
+                class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
+                View More
+              </button>
+            </div>
+          </div>
+          <div
+            id="saturn"
+            class="planet flex flex-col gap-2 border border-gray-700 rounded-3xl p-5 relative">
+            <div class="overflow-hidden w-full h-[400px]">
+              <img
+                src="img/saturn.png"
+                alt="Earth-Image"
+                class="w-full h-full object-contain" />
+            </div>
+            <div class="planet-content w-full px-2 py-4">
+              <h2
+                class="text-center text-4xl font-bold tracking-wider text-white">
+                Saturn
+              </h2>
+              <p class="text-gray-500 text-lg font-semibold">
+                Known for its beautiful rings.
+              </p>
+            </div>
+            <div class="w-full flex p-3 btndiv">
+              <button
+                class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
+                View More
+              </button>
+            </div>
+          </div>
+          <div
+            id="uranus"
+            class="planet flex flex-col gap-2 border border-gray-700 rounded-3xl p-5 relative">
+            <div class="overflow-hidden w-full h-[400px]">
+              <img
+                src="img/uranus.png"
+                alt="Earth-Image"
+                class="w-full h-full object-cover lg:object-contain lg:scale-150" />
+            </div>
+            <div class="planet-content w-full px-2 py-4">
+              <h2
+                class="text-center text-4xl font-bold tracking-wider text-white">
+                Uranus
+              </h2>
+              <p class="text-gray-500 text-lg font-semibold">
+                An icy giant with a unique tilt.
+              </p>
+            </div>
+            <div class="w-full flex p-3 btndiv">
+              <button
+                class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
+                View More
+              </button>
+            </div>
+          </div>
+          <div
+            id="neptune"
+            class="planet flex flex-col gap-2 border border-gray-700 rounded-3xl p-5 relative">
+            <div class="overflow-hidden w-full h-[400px]">
+              <img
+                src="img/neptune.png"
+                alt="Earth-Image"
+                class="w-full h-full object-contain" />
+            </div>
+            <div class="planet-content w-full px-2 py-4">
+              <h2
+                class="text-center text-4xl font-bold tracking-wider text-white">
+                Neptune
+              </h2>
+              <p class="text-gray-500 text-lg font-semibold">
+                The windiest planet in the Solar System.
+              </p>
+            </div>
+            <div class="w-full flex p-3 btndiv">
+              <button
+                class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
+                View More
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
