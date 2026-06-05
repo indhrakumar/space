@@ -1,7 +1,8 @@
 const starsContainer = document.getElementById("stars");
 const sscontainer = document.getElementById("shootingstars");
+const starCount = window.innerWidth < 768 ? 200 : 800;
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < starCount; i++) {
   const star = document.createElement("div");
 
   star.classList.add("star");
