@@ -128,7 +128,7 @@ const planets = {
 
   earth: {
     name: "Earth",
-    image: "./img/earth.webp",
+    image: "./img/Earth.webp",
     distance: "149.6 million km",
     moons: "1",
     diameter: "12,742 km",
