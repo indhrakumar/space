@@ -81,3 +81,108 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".planet").forEach((planet) => {
   observer.observe(planet);
 });
+const modal = document.getElementById("planetModal");
+
+function openPlanetModal(data) {
+  document.getElementById("planetName").textContent = data.name;
+
+  document.getElementById("planetImage").src = data.image;
+
+  document.getElementById("planetDistance").textContent = data.distance;
+
+  document.getElementById("planetMoons").textContent = data.moons;
+
+  document.getElementById("planetDiameter").textContent = data.diameter;
+
+  document.getElementById("planetDay").textContent = data.day;
+
+  document.getElementById("planetFact").textContent = data.fact;
+
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
+document.getElementById("closeModal").addEventListener("click", () => {
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+});
+const planets = {
+  mercury: {
+    name: "Mercury",
+    image: "./img/mercury1.webp",
+    distance: "57.9 million km",
+    moons: "0",
+    diameter: "4,879 km",
+    day: "59 Earth days",
+    fact: "Closest planet to the Sun.",
+  },
+
+  venus: {
+    name: "Venus",
+    image: "./img/venus.webp",
+    distance: "108.2 million km",
+    moons: "0",
+    diameter: "12,104 km",
+    day: "243 Earth days",
+    fact: "Hottest planet in the Solar System.",
+  },
+
+  earth: {
+    name: "Earth",
+    image: "./img/earth.webp",
+    distance: "149.6 million km",
+    moons: "1",
+    diameter: "12,742 km",
+    day: "24 hours",
+    fact: "The only known planet known to support life.",
+  },
+
+  mars: {
+    name: "Mars",
+    image: "./img/mars.webp",
+    distance: "227.9 million km",
+    moons: "2",
+    diameter: "6,779 km",
+    day: "24.6 hours",
+    fact: "Home to Olympus Mons, the tallest volcano in the Solar System.",
+  },
+
+  jupiter: {
+    name: "Jupiter",
+    image: "./img/jupiter.webp",
+    distance: "778.5 million km",
+    moons: "95+",
+    diameter: "139,820 km",
+    day: "10 hours",
+    fact: "Largest planet in the Solar System.",
+  },
+
+  saturn: {
+    name: "Saturn",
+    image: "./img/saturn.webp",
+    distance: "1.43 billion km",
+    moons: "140+",
+    diameter: "116,460 km",
+    day: "10.7 hours",
+    fact: "Famous for its spectacular rings.",
+  },
+
+  uranus: {
+    name: "Uranus",
+    image: "./img/uranus.webp",
+    distance: "2.87 billion km",
+    moons: "27",
+    diameter: "50,724 km",
+    day: "17 hours",
+    fact: "Rotates on its side.",
+  },
+
+  neptune: {
+    name: "Neptune",
+    image: "./img/neptune.webp",
+    distance: "4.5 billion km",
+    moons: "14",
+    diameter: "49,244 km",
+    day: "16 hours",
+    fact: "Has the fastest winds in the Solar System.",
+  },
+};

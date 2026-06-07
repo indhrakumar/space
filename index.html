@@ -13,6 +13,7 @@
       }
       body {
         font-family: "Cinzel";
+        background: linear-gradient(to right, #161615 1%, #000000 70%);
       }
       #stars {
         position: fixed;
@@ -115,7 +116,7 @@
       }
     </style>
   </head>
-  <body class="bg-black">
+  <body>
     <div id="stars"></div>
     <div id="shootingstars"></div>
     <section id="hero" class="min-h-screen flex items-center">
@@ -172,6 +173,7 @@
             </div>
             <div class="w-full flex p-3 btndiv">
               <button
+                onclick="openPlanetModal(planets.mercury)"
                 class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
                 View More
               </button>
@@ -198,6 +200,7 @@
             </div>
             <div class="w-full flex p-3 btndiv">
               <button
+                onclick="openPlanetModal(planets.venus)"
                 class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
                 View More
               </button>
@@ -224,6 +227,7 @@
             </div>
             <div class="w-full flex p-3 btndiv">
               <button
+                onclick="openPlanetModal(planets.earth)"
                 class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
                 View More
               </button>
@@ -249,6 +253,7 @@
             </div>
             <div class="w-full flex p-3 btndiv">
               <button
+                onclick="openPlanetModal(planets.mars)"
                 class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
                 View More
               </button>
@@ -274,6 +279,7 @@
             </div>
             <div class="w-full flex p-3 btndiv">
               <button
+                onclick="openPlanetModal(planets.jupiter)"
                 class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
                 View More
               </button>
@@ -299,6 +305,7 @@
             </div>
             <div class="w-full flex p-3 btndiv">
               <button
+                onclick="openPlanetModal(planets.saturn)"
                 class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
                 View More
               </button>
@@ -324,6 +331,7 @@
             </div>
             <div class="w-full flex p-3 btndiv">
               <button
+                onclick="openPlanetModal(planets.uranus)"
                 class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
                 View More
               </button>
@@ -349,6 +357,7 @@
             </div>
             <div class="w-full flex p-3 btndiv">
               <button
+                onclick="openPlanetModal(planets.neptune)"
                 class="mb-5 w-fit px-6 py-2 font-bold text-cyan-500 backdrop-blur-sm bg-slate-700/30 rounded-3xl mx-auto">
                 View More
               </button>
@@ -357,6 +366,56 @@
         </div>
       </div>
     </section>
+    <div
+      id="planetModal"
+      class="fixed inset-0 bg-black/80 hidden justify-center items-center z-[9999] p-4">
+      <div
+        class="bg-black/30 backdrop-blur-sm text-white w-full max-w-lg rounded-2xl p-6 relative border border-cyan-500/30 shadow-2xl">
+        <button
+          id="closeModal"
+          class="absolute top-4 right-4 text-3xl hover:text-red-400 transition">
+          &times;
+        </button>
+
+        <h2 id="planetName" class="text-3xl font-bold text-center mb-4">
+          Mars
+        </h2>
+
+        <img
+          id="planetImage"
+          src=""
+          alt=""
+          class="w-48 h-48 mx-auto object-contain mb-4" />
+
+        <div class="space-y-2 text-lg">
+          <p>
+            🌍 <span class="font-semibold">Distance:</span>
+            <span id="planetDistance"></span>
+          </p>
+
+          <p>
+            🌙 <span class="font-semibold">Moons:</span>
+            <span id="planetMoons"></span>
+          </p>
+
+          <p>
+            📏 <span class="font-semibold">Diameter:</span>
+            <span id="planetDiameter"></span>
+          </p>
+
+          <p>
+            ⏰ <span class="font-semibold">Day Length:</span>
+            <span id="planetDay"></span>
+          </p>
+        </div>
+
+        <div class="mt-5 p-4 bg-white/10 rounded-xl border border-white/10">
+          <h3 class="font-semibold mb-2">Fun Fact 🚀</h3>
+
+          <p id="planetFact"></p>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
